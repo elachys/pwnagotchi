@@ -136,8 +136,8 @@ is_decrypted() {
         fi
       fi
 
-      if ! ip -4 addr show wlan0 | grep inet >/dev/null 2>&1; then
-        >/dev/null 2>&1 ip addr add 192.168.0.10/24 dev wlan0
+      if ! ip -4 addr show wlan1 | grep inet >/dev/null 2>&1; then
+        >/dev/null 2>&1 ip addr add 192.168.0.10/24 dev wlan1
       fi
 
       if ! pgrep -f decryption-webserver >/dev/null 2>&1; then
@@ -158,11 +158,11 @@ network={
     frequency=2437
 }
 EOF
-        >/dev/null 2>&1 wpa_supplicant -D nl80211 -i wlan0 -c /tmp/wpa_supplicant.conf &
+        >/dev/null 2>&1 wpa_supplicant -D nl80211 -i wlan1 -c /tmp/wpa_supplicant.conf &
       fi
 
       if ! pgrep dnsmasq >/dev/null 2>&1; then
-        >/dev/null 2>&1 dnsmasq -k -p 53 -h -O "6,192.168.0.10" -A "/#/192.168.0.10" -i wlan0 -K -F 192.168.0.50,192.168.0.60,255.255.255.0,24h &
+        >/dev/null 2>&1 dnsmasq -k -p 53 -h -O "6,192.168.0.10" -A "/#/192.168.0.10" -i wlan1 -K -F 192.168.0.50,192.168.0.60,255.255.255.0,24h &
       fi
 
       return 1

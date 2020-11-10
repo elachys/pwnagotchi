@@ -24,7 +24,7 @@ main.plugins.grid.exclude = [
   "YourHomeNetworkHere"
 ]
 
-main.plugins.auto-update.enabled = true
+main.plugins.auto-update.enabled = false
 main.plugins.auto-update.install = true
 main.plugins.auto-update.interval = 1
 
@@ -86,7 +86,7 @@ main.plugins.paw-gps.ip = ""
 
 main.plugins.gpio_buttons.enabled = false
 
-main.plugins.led.enabled = true
+main.plugins.led.enabled = false
 main.plugins.led.led = 0
 main.plugins.led.delay = 200
 main.plugins.led.patterns.loaded = "oo  oo  oo oo  oo  oo  oo"
